@@ -192,7 +192,3 @@ U. Complete the following table:
 ## Part 8 - Discussion
 
 V. Why is it bad practice to always return `200`, even on errors?
-
-W. How do status code affect Observability?
-
-X. What is the difference between `401` and `403` codes?
