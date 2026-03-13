@@ -40,7 +40,7 @@ function showAlert(message, type) {
 
 When the user info is incomplete in step 1, you should see an alert:
 
-![](.images/step8.png)
+![](images/step8.png)
 
 [< Back to Step 7](step7.md) | Step 8 | [Go to Step 9 >](step9.md)
 
