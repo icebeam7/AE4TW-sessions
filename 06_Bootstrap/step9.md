@@ -6,6 +6,6 @@ Use the `submitForm` method in the `wizard.js` script to display a `success` ale
 
 Expected output:
 
-![](.images/step9.png)
+![](images/step9.png)
 
 [< Back to Step 8](step8.md) | Step 9 | [Go to Step 10 >](step10.md)
