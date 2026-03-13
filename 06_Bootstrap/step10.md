@@ -50,7 +50,7 @@ Call the new function inside `nextStep()` and `previousStep()` methods.
 
 Click on each tab to see the progress update:
 
-![](.images/step10.png)
+![](images/step10.png)
 
 [< Back to Step 9](step9.md)
 
