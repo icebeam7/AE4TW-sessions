@@ -60,7 +60,9 @@ Useful container variants:
 </html>
 ```
 
-![](./images/step1.md)
+Save your file and open it in the browser:
+
+![](./images/step1.png)
 
 
 ## Task 1.2: Create a base script
