@@ -11,6 +11,6 @@ For the third and final step, add the code to include a `card` that meets the fo
 
 Expected output:
 
-![](.images/step5.png)
+![](images/step5.png)
 
 [< Back to Step 4](step4.md) | Step 5 | [Go to Step 6 >](step6.md)
