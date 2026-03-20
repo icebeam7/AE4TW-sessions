@@ -30,16 +30,17 @@ npm install openai
 
 <img width="1708" height="584" alt="image" src="https://github.com/user-attachments/assets/b1b5878e-7a57-4f48-82f5-271efe0cdcfb" />
 
+6. Make sure to run `npm install --save-dev ajv` if you got an error about a missing module in the first React tutorial.
 
-6. Open the `ai-image-generator` folder in VS Code.
+7. Open the `ai-image-generator` folder in VS Code.
 
-7. Delete the following files from the `src` folder (they will not be used):
+8. Delete the following files from the `src` folder (they will not be used):
 
 - `App.test.js`
 - `reportWebVitals.js`
 - `setupTests.js`
 
-8. Edit `index.js`:
+9. Edit `index.js`:
 
 - Remove (or comment out) the unused import for `reportWebVitals`.
 - Remove (or comment out) the line that calls `reportWebVitals()`.
@@ -49,6 +50,6 @@ npm install openai
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
-9. Save the file.
+10. Save the file.
 
 [Next Step](step2.md)
