@@ -8,7 +8,7 @@ Complete the following steps using `src/App.js` file:
 
 2. Import the three custom components created in previous steps.
 
-3. Import the `OpenAI` object from the `openai` package using CommonJS syntax (require). This object is used to make API calls to an Azure OpenAI model (DALL-E).
+3. Import the `OpenAI` object from the `openai` package using CommonJS syntax (require). This object is used to make API calls to an OpenAI model (`gpt-image-1`).
 
 ```javascript
 import OpenAI from 'openai';
