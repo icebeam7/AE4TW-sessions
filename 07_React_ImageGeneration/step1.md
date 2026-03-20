@@ -30,17 +30,26 @@ npm install openai
 
 <img width="1708" height="584" alt="image" src="https://github.com/user-attachments/assets/b1b5878e-7a57-4f48-82f5-271efe0cdcfb" />
 
-6. Make sure to run `npm install --save-dev ajv` if you got an error about a missing module in the first React tutorial. Another useful command is `npm install` to install all dependencies.
+6. Install a minimal dependency, a file system (fs) library:
 
-7. Open the `ai-image-generator` folder in VS Code.
+```bash
+npm i @react-native-windows/fs
+```
 
-8. Delete the following files from the `src` folder (they will not be used):
+<img width="1710" height="576" alt="image" src="https://github.com/user-attachments/assets/06ba0678-19e2-4a71-b3ff-91f2c4b83155" />
+
+
+7. Make sure to run `npm install --save-dev ajv` if you got an error about a missing module in the first React tutorial. Another useful command is `npm install` to install all dependencies.
+
+8. Open the `ai-image-generator` folder in VS Code.
+
+9. Delete the following files from the `src` folder (they will not be used):
 
 - `App.test.js`
 - `reportWebVitals.js`
 - `setupTests.js`
 
-9. Edit `index.js`:
+10. Edit `index.js`:
 
 - Remove (or comment out) the unused import for `reportWebVitals`.
 - Remove (or comment out) the line that calls `reportWebVitals()`.
@@ -50,6 +59,6 @@ npm install openai
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
-10. Save the file.
+11. Save the file.
 
 [Next Step](step2.md)
