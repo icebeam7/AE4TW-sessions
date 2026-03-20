@@ -1,4 +1,4 @@
-# Step 3: Implement the ImageGeneratorForm Component
+# Step 3: Implement the `ImageGeneratorForm` Component
 
 In this step, you will create a functional, reusable React component designed to render a simple form for generating images based on user input. It will allow users to enter a description and trigger an action with a button click.
 
