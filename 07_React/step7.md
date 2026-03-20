@@ -33,4 +33,6 @@ npm start
 
 > Now you can try the `run start` command again and it should work this time.
 
+> If it still fails, try `npm install` to install all dependencies.
+
 [< Previous Step](step6.md) | Step 7 | [Next Step >](step8.md)
