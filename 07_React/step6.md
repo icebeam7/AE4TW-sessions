@@ -50,9 +50,6 @@ const [posts, setPosts] = useState([]);
 ```javascript
   return (
     <div className="App" style={{ padding: '2rem' }}>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
       <main>
         <h1>List of Posts</h1>
         <PostList posts={posts} />
