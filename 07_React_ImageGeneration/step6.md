@@ -21,7 +21,7 @@ const apiKey = process.env.REACT_APP_AZURE_OPENAI_API_KEY;
 const deploymentName = process.env.REACT_APP_AZURE_OPENAI_DEPLOYMENT_NAME;
 ```
 
-These values are essential for securely connecting to the Azure OpenAI service and are used later for API requests.
+These values are essential for securely connecting to the OpenAI service and are used later for API requests.
 
 5. Create a function named `getClient`, which returns a configured `OpenAI` client instance.
 
@@ -65,7 +65,7 @@ function App() {
 
 8. Add the generateImage async callback
 
-Define a generateImage function that validates input, calls the Azure OpenAI API, and updates state.
+Define a generateImage function that validates input, calls the OpenAI API, and updates state.
 
 ```javascript
   const generateImage = async () => {
@@ -124,7 +124,7 @@ Return the following JSX as the App component UI:
 ```javascript
   return (
     <div className="min-vh-100 bg-light text-center py-4 px-2">
-      <h1 className="h2 fw-bold mb-4">AI Image Generator with Azure OpenAI</h1>
+      <h1 className="h2 fw-bold mb-4">AI Image Generator with OpenAI</h1>
       <ImageGeneratorForm
         prompt={prompt}
         setPrompt={setPrompt}
