@@ -30,7 +30,7 @@ npm install openai
 
 <img width="1708" height="584" alt="image" src="https://github.com/user-attachments/assets/b1b5878e-7a57-4f48-82f5-271efe0cdcfb" />
 
-6. Make sure to run `npm install --save-dev ajv` if you got an error about a missing module in the first React tutorial.
+6. Make sure to run `npm install --save-dev ajv` if you got an error about a missing module in the first React tutorial. Another useful command is `npm install` to install all dependencies.
 
 7. Open the `ai-image-generator` folder in VS Code.
 
