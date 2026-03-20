@@ -2,7 +2,7 @@
 
 In this tutorial, you will create a React app where users enter a text prompt (for example, "a futuristic city at sunset"), click a button, and view an AI-generated image based on that prompt.
 
-- Azure OpenAI's DALL-E model will be used to generate images from the user prompt.
+- [OpenAI's gpt-image-1](https://developers.openai.com/api/docs/guides/image-generation) model will be used to generate images from the user prompt.
 - Bootstrap will be used for styling.
 
 ## Step 1: Set Up the Project
