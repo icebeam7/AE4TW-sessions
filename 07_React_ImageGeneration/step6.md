@@ -144,3 +144,4 @@ UI details:
 - The `Loader` component is conditionally rendered when `loading` is true to show progress.
 - `ImageDisplay` is conditionally rendered when `imageUrl` exists to show the generated image.
 
+[< Previous Step](step5.md) | Step 6 | [Next Step >](step7.md)
