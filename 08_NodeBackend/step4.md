@@ -19,7 +19,11 @@ In this step, you will set up environment variables for the port used by the app
 
 <img width="1240" height="392" alt="image" src="https://github.com/user-attachments/assets/29c69423-259a-4af7-bf00-640058df7e81" />
 
-4. Comment out the line where you print the secret value so it is no longer displayed in the console. Optionally, comment out also the line where you read the secret value.
+4. Without stopping the server, comment out the line where you print the secret value so it is no longer displayed in the console. Save the file. Please notice how the server is automatically restarted when a new version of the file is detected.
+
+<img width="1094" height="520" alt="image" src="https://github.com/user-attachments/assets/fe5daf66-987d-43aa-89e0-af273ceca6b3" />
+
+5. Optionally, comment out also the line where you read the secret value. Press `Ctrl-C` to stop the server.
 
 ## References
 - [dotenv usage](https://www.npmjs.com/package/dotenv)
