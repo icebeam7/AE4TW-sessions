@@ -48,11 +48,12 @@ npm install nodemon --save-dev
 
   ```json
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon src/index.js"
   }
   ```
 
 Purpose: This lets you run the backend in development mode with automatic reload using `npm run dev`.
+> NOTE: If you want to keep the `test` script, add a comma at the end of the `start` script.
 
 5. Add the type module to use the ES module:
 
