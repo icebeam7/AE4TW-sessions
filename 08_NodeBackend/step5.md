@@ -2,6 +2,8 @@
 
 In this step, you will create a SQLite database file (`src/db/data.db`) by implementing a small initialization step (`src/db.js`) that creates tables if they don’t exist.
 
+> Review the references listed below to complete this step.
+
 ## Create Tables
 You will create two tables:
 
@@ -25,14 +27,66 @@ You will create two tables:
    - Run schema creation.
    - Exports helper functions to run queries.
 
-   **References**:
-   - [SQLite tutorial with Node.js](https://www.sqlitetutorial.net/sqlite-nodejs/)
+> Define the helper functions like this:
+
+```javascript
+// ... rest of your code
+import path from "path";
+
+const __dirname = import.meta.dirname;
+let db;
+
+// initialize db and create tables
+export const db_initialize_create = async () => {
+  let filename = path.join(__dirname, "db", "data.db");
+  // rest of your code...
+
+  return db;
+}
+
+export const get_db = () => {
+  if (!db) throw new Error("DB not initialized. Call db_initialize_create() first.");
+  return db;
+}
+```
 
 2. Call the Module in `src/index.js`:
    - Ensure the database connection is established.
 
-3. Start the Server and Verify:
+```javascript
+import { db_initialize_create } from "./db.js";
+// rest of your code...
+
+db_initialize_create().then(() => {
+  console.log("DB initialized and tables created");
+});
+```
+
+3. Start the Server and verify:
    - When the server starts, ensure the `.db` file appears in your `src/db` folder.
-   - Confirm that the tables are created successfully.
+   - Confirm that the tables are created successfully (a new `data.db` file should appear in the `src/db` folder).
+
+<img width="1574" height="534" alt="image" src="https://github.com/user-attachments/assets/e2bc68af-036d-44b7-983f-bae10fcf1704" />
+
+4. Press `Ctrl-C` to stop the server.
+
+5. You can connect to the database by entering the following command in the terminal:
+
+```
+sqlite3 src/db/data.db   
+```
+
+6. Once connected to the database, use the command `.tables` to list the database tables. 
+
+7. You can also view the table schema with the `.schema` command (it requires the name of the table).
+
+8. Disconnect from the database with the `.quit` command.
+
+<img width="914" height="434" alt="image" src="https://github.com/user-attachments/assets/77f0e5b1-e747-4e6f-9d0d-db03b4f15abe" />
+
+**References**:
+- [SQLite tutorial with Node.js](https://www.sqlitetutorial.net/sqlite-nodejs/)
+   - [SQLite Node.js: Connecting to a SQLite Database](https://www.sqlitetutorial.net/sqlite-nodejs/connect/)
+   - [SQLite Node.js: Creating Tables](https://www.sqlitetutorial.net/sqlite-nodejs/create-tables/)
 
 [< Previous Step](step4.md) | Step 5 | [Next Step >](step6.md)
