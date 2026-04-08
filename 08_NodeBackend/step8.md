@@ -7,11 +7,12 @@
 - Look Up the User by Email: Query the database to find the user associated with the provided `email`.
 - Compare Password to Stored Hash: Use `bcryptjs` library to compare the provided `password` with the stored hash value.
 - Sign a JWT and Return: If the password is correct, generate a **JSON Web Token (JWT)** using `jsonwebtoken` library and return it in the response:
-     ```json
-     {
-       "token": "<JWT_TOKEN_STRING>"
-     }
-     ```
+
+```json
+{
+  "token": "<JWT_TOKEN_STRING>"
+}
+```
 
 - Sign Token:
   - Include the user ID in the JWT `sub` (subject) claim.
