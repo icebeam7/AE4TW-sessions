@@ -31,4 +31,69 @@
 - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 - [How to Handle Passwords Safely with BcryptsJS in JavaScript](https://www.digitalocean.com/community/tutorials/how-to-handle-passwords-safely-with-bcryptsjs-in-javascript)
 
+<details>
+
+<summary>Solution</summary>
+
+`src/routes/auth.js`:
+
+```javascript
+// implement this after router.post("/signup" and before export default router;
+
+async function login_user(db, email, password) {
+    return new Promise((resolve, reject) => {
+        const query = "SELECT id, email, password_hash FROM users WHERE email = ?";
+        db.get(query, email, async (err, user) => {
+            if (err) {
+                console.error(err);
+                return reject(new Error(`Database error while fetching user: ${err.message}`));
+            }
+
+            if (!user) {
+                return reject(new Error("Invalid email or password"));
+            }
+
+            const password_match = await bcryptjs.compare(password, user.password_hash);
+            if (!password_match) {
+                return reject(new Error("Invalid email or password"));
+            }
+
+            console.log(`User ${user.email} authenticated successfully`);
+            console.log(`Generating JWT for user ID ${user.id}`);
+
+            const token = jwt.sign(
+                { sub: user.id },
+                process.env.JWT_SECRET,
+                { expiresIn: "1h" }
+            );
+
+            resolve({ token });
+        });
+    });
+}
+
+router.post("/login", async (req, res) => {
+    const { email, password } = req.body || {};
+
+    if (!email || !password) {
+        return res.status(400).json({ error: "email and password required" });
+    }
+
+    const db = get_db();
+
+    try {
+        const result = await login_user(db, email, password);
+        return res.status(200).json(result);
+    } catch (err) {
+        return res.status(401).json({ error: err.message });
+    }
+});
+
+// rest of your code: export default router;
+
+```
+
+</details>
+
+
 [< Previous Step](step7.md) | Step 8 | [Next Step >](step9.md)
