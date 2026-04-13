@@ -29,4 +29,30 @@ In this step, you will set up environment variables for the port used by the app
 - [dotenv usage](https://www.npmjs.com/package/dotenv)
 - [env variables: gitignore](https://calmcode.io/course/env-variables/gitignore)
 
+<details>
+
+<summary>Solution</summary>
+
+```javascript
+import express from "express";
+import dotenv from 'dotenv'
+dotenv.config()
+
+const app = express()
+app.use(express.json());
+
+const port = process.env.PORT || 3000
+//const jwtSecret = process.env.JWT_SECRET;
+
+app.get("/health", (req, res) => res.json({ status: "ok" }));
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+  //console.log(`Using JWT secret: ${jwtSecret}`);
+})
+```
+
+</details>
+
+
 [< Previous Step](step3.md) | Step 4 | [Next step >](step5.md)
