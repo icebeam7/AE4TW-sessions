@@ -31,4 +31,27 @@ In this step, you will create a simple **Express server**.
 - [Add health checks to your application](https://developers.redhat.com/learning/learn:openshift:develop-cloud-native-nodejs-applications-expressjs/resource/resources:add-health-checks-your-application)
 - [CommonJS vs. ES modules in Node.js](https://blog.logrocket.com/commonjs-vs-es-modules-node-js/)
 
+<details>
+
+<summary>Solution</summary>
+
+```javascript
+import express from "express";
+import dotenv from 'dotenv'
+dotenv.config()
+
+const app = express()
+app.use(express.json());
+
+const port = process.env.PORT || 3000
+
+app.get("/health", (req, res) => res.json({ status: "ok" }));
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+```
+
+</details>
+
 [< Previous Step](step2.md) | Step 3 | [Next step >](step4.md)
