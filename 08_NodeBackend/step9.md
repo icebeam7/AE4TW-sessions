@@ -44,4 +44,129 @@ req.user = {
 - [Express Middleware](https://expressjs.com/en/guide/using-middleware.html)
 - [Protecting Routes with JWT Middleware in Node.js](https://www.guvi.in/blog/protecting-routes-with-jwt-middleware-in-node-js/)
 
+<details>
+
+<summary>Solution</summary>
+
+`src/routes/auth.js`:
+
+```javascript
+// add this before export default router;
+
+export function requireAuth(req, res, next) {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        return res.status(401).json({ error: "Authorization header missing or malformed" });
+    }
+
+    const token = authHeader.split(" ")[1];
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        console.log(`JWT verified successfully for user ID ${decoded.sub}`);
+        req.user = { id: decoded.sub, email: decoded.email };
+        next();
+    } catch (err) {
+        console.error("JWT verification failed:", err);
+        return res.status(401).json({ error: "Invalid or expired token" });
+    }
+}
+
+// rest of your code
+```
+
+`src/routes/items.js`:
+
+```javascript
+// add this at the beginning
+import { requireAuth } from "./auth.js";
+
+// rest of your code
+
+// modify this to include requireAuth and use req.user.id for db.run command
+router.post("/", requireAuth, async (req, res) => {
+  const { name, description } = req.body || {};
+  if (!name) return res.status(400).json({ error: "name required" });
+
+  const db = get_db();
+  const query = "INSERT INTO items (name, description, owner_user_id) VALUES (?, ?, ?)";
+  
+  await db.run(query, 
+    [name, description || null, req.user.id], 
+    async function(err) {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: `Database error while inserting item: ${err.message}` });
+        }
+
+        console.log(`Inserted item with ID ${this.lastID}`);
+
+        const created = await get_by_id(db, this.lastID);
+        return res.status(201).json(created);
+    });
+});
+
+// modify this to include requireAuth 
+router.put("/:id", requireAuth, async (req, res) => {
+  const { name, description } = req.body || {};
+  if (!name) return res.status(400).json({ error: "name required" });
+
+  const db = get_db();
+
+  const existing = await get_by_id(db, req.params.id);
+
+  if (!existing) 
+    return res.status(404).json({ error: "Not found" });
+
+  if (existing.owner_user_id && existing.owner_user_id !== req.user.id) {
+    return res.status(403).json({ error: "Forbidden" });
+  }
+  
+  const query_update = "UPDATE items SET name = ?, description = ? WHERE id = ?";
+
+  await db.run(query_update, 
+    [name, description || null, req.params.id], 
+    function(err) {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: `Database error while updating item with ID ${req.params.id}: ${err.message}` });
+        }
+
+        console.log(`Updated item with ID ${req.params.id}`);
+        return res.status(204).send();
+  });
+});
+
+// modify this to include requireAuth 
+router.delete("/:id", requireAuth, async (req, res) => {
+  const db = get_db();
+  const existing = await get_by_id(db, req.params.id);
+
+  if (!existing) 
+    return res.status(404).json({ error: "Not found" });
+
+  if (existing.owner_user_id && existing.owner_user_id !== req.user.id) {
+    return res.status(403).json({ error: "Forbidden" });
+  }
+
+  const query_delete = "DELETE FROM items WHERE id = ?";
+
+  await db.run(query_delete, 
+    [req.params.id], 
+    function(err) {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: `Database error while deleting item with ID ${req.params.id}: ${err.message}` });
+        }
+
+        console.log(`Deleted item with ID ${req.params.id}`);
+        return res.status(204).send();
+  });
+});
+
+export default router;
+```
+
+</details>
+
+
 [< Previous Step](step8.md) | Step 9 | 
