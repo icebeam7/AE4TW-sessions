@@ -89,7 +89,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-// rest of your code: export default router;
+// rest of your code
 
 ```
 
