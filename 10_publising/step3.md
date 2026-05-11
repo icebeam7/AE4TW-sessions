@@ -13,7 +13,7 @@
 
 <img width="1093" height="237" alt="Screenshot 2026-04-23 at 13 49 00" src="https://github.com/user-attachments/assets/e340fa96-40a3-4155-a263-3d11974367a9" />
 
-4. Enter the code:
+4. Enter the code and click on Allow:
 
 <img width="533" height="471" alt="Screenshot 2026-04-23 at 13 53 05" src="https://github.com/user-attachments/assets/5d256d4f-ece2-43da-bff7-44c74ae96f45" />
 
