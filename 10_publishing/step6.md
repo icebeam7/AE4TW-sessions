@@ -53,4 +53,12 @@
 
 CONGRATULATIONS! Your app has been published and available for the world to see it! (or test it, if it's a backend).
 
+BONUS. If you go to your GitHub repository, you will notice two new things:
+
+- A Production deployment with additional details about the deployment (commit used, deployment URL)
+- A URL in the About section that takes you to the published app URL
+
+<img width="1275" height="838" alt="image" src="https://github.com/user-attachments/assets/5d08e50d-7a33-4e50-a7b5-b89439c6b5a1" />
+
+
 [< Previous Step](step5.md) | Step 6
