@@ -10,7 +10,16 @@ We have manually evaluated that some of the endpoints work. This is time-consumi
 
 Coupled with **Jest**, a JavaScript Testing Framework with a focus on simplicity, you can ensure that your APIs are robust and reliable.
 
-2. Before we actually write our first test, refactor the `src/db.js` script by defining constants for the database name, directory and schema (strings). Replace the content of `src/db.js` with the following content:
+2. Add the following script in the `scripts` section of `package.json` file, below the `start` script:
+
+```json
+  "test": "node --experimental-vm-modules node_modules/.bin/jest"
+```
+
+<img width="1358" height="660" alt="image" src="https://github.com/user-attachments/assets/a4f16d05-552d-4276-a3bb-05d68d68542d" />
+
+
+3. Before we actually write our first test, refactor the `src/db.js` script by defining constants for the database name, directory and schema (strings). Replace the content of `src/db.js` with the following content and save the file:
 
 ```javascript
 import sqlite3 from "sqlite3";
