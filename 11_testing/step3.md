@@ -17,6 +17,9 @@ The `testMatch: ["**/test/**/*.test.js"]` pattern defines which files Jest shoul
 
 3. In your root path, create a new folder `test` and add a new file, `items.test.js`. When we run the test, Jest will identify it because of the configuration pattern that we have just defined.
 
+<img width="588" height="618" alt="image" src="https://github.com/user-attachments/assets/7d7724af-cb15-45cd-add1-b0714ed33ed1" />
+
+
 4. Import the following elements in `items.test.js`:
 
 ```javascript
