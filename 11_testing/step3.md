@@ -83,4 +83,4 @@ Explanation:
 
 - `authHeader(token)` builds the `Authorization` header object expected by bearer-token auth middleware. 
 
-[< Previous Step](step1.md) | Step 2 | [Next Step >](step3.md)
+[< Previous Step](step2.md) | Step 3 | [Next Step >](step4.md)
